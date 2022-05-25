@@ -1,0 +1,7 @@
+The MIMAS V2 contains 3 seven segment displays with common anode for each display.
+The clock frequency of the FPGA board is 100MHz, so a counter is used to count 10^8 cycles and scale down the clock frequency to 1Hz.
+Every 10^8 clock cylces the value on the seven segment display increases by 1.
+A “sync” signal is used to active only one seven segement diplay at a time. This “sync” signal has a frequency of less than 1 second and hence it refreshes the display at a faster rate than the count speed of 1 second.The refresh rate should be from 1ms to 16ms.
+This high frequency of sync signal is required because the human eye would not be able to detect such high frequency of LED blinking and we would see that all the 3 seven segments are ON at any point of time.
+The “digit” signal governs the value of digit that is to be displayed on each Seven-Segemnt display. When one of the seven segment display is active the digit signal turns ON the correct patten of LED on it.
+Finally, a reset signal has also been incorporated in the design that stops the count and latches it to 0.
